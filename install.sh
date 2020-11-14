@@ -4,7 +4,7 @@ welcome() {
   echo "Welcome, to Machstrap, this script will bootstrap Arch linux with programs and development tools to increase your productivity."
   echo "For this installer to work you will need to have an active internet connection and allow this program to run as root."
 
-  pacman --noconfirm --needed -Sy archlinux-keyring > /dev/null 2>&1 || echo "MUST RUN AS ROOT USER"
+  # pacman --noconfirm --needed -Sy archlinux-keyring > /dev/null 2>&1 || echo "MUST RUN AS ROOT USER"
 }
 
 add_user() {
@@ -108,3 +108,6 @@ install_extras() {
 
 # welcome
 welcome
+add_or_choose_user
+install_basics
+install_extras
