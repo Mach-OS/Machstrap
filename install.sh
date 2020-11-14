@@ -65,7 +65,7 @@ start_network_service() {
 }
 
 start_display_manager_service() {
-systemctl enable lightdm
+  systemctl enable lightdm
 }
 
 
@@ -106,4 +106,4 @@ install_extras() {
 
 
 # welcome
-add_or_choose_user
+welcome
