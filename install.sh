@@ -4,14 +4,16 @@ welcome() {
   echo "Welcome, to Machstrap, this script will bootstrap Arch linux with programs and development tools to increase your productivity."
   echo "For this installer to work you will need to have an active internet connection and allow this program to run as root."
 
+  # TODO solve this
   # pacman --noconfirm --needed -Sy archlinux-keyring > /dev/null 2>&1 || echo "MUST RUN AS ROOT USER"
 }
 
 add_user() {
-  echo "Enter new username: "
+  echo -n "Enter new username: "
   read username
-  if id -u $username >/dev/null 2>$1; then
-    echo "User already exists!"
+  # TODO solve this
+  # if id -u $username >/dev/null 2>$1; then
+  #   echo "User already exists!"
 
   else
     echo -n "Enter password for new user: "
