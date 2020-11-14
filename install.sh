@@ -50,6 +50,7 @@ install_basics() {
 }
 
 install_aur_helper() {
+  su $username
   git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin
   makepkg -si
@@ -112,6 +113,5 @@ install_extras() {
 welcome
 add_or_choose_user
 install_basics
-su $username
 install_aur_helper
 # install_extras
