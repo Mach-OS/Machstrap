@@ -11,14 +11,11 @@ git
 archlinux-keyring
 i3-gaps
 i3lock
-i3lock-fancy-git
 i3status
 jq
 krita
 lightdm
 lightdm-gtk-greeter
-lightdm-settings
-lightdm-slick-greeter
 lxappearance
 man-db
 man-pages
@@ -29,9 +26,7 @@ mpc
 ncmpcpp
 mtools
 nautilus
-network-manager-applet-indicator
 networkmanager
-networkmanager-dmenu-git
 newsboat
 nmap
 noto-fonts-emoji
@@ -52,7 +47,6 @@ ttf-font-awesome
 unzip
 vi
 wget
-xbanish
 xcape
 xdotool
 xorg-server

@@ -112,4 +112,4 @@ install_extras() {
 welcome
 add_or_choose_user
 install_basics
-install_extras
+# install_extras
