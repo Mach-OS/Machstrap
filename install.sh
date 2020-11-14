@@ -7,18 +7,19 @@ welcome() {
   pacman --noconfirm --needed -Sy archlinux-keyring > /dev/null 2>&1 || echo "MUST RUN AS ROOT USER"
 }
 
-# add_user() {
-#   echo "Enter new username: "
-#   read username
-#   if id -u $username >/dev/null 2>$1; then
-#     echo "User already exists!"
+add_user() {
+  echo "Enter new username: "
+  read username
+  if id -u $username >/dev/null 2>$1; then
+    echo "User already exists!"
 
-#   else
-#     echo -n "Enter password for new user: "
-#     read -s password
-#     useradd -m -g wheel "$username"
-#     echo "$password" | passwd "$username" --stdin
-# }
+  else
+    echo -n "Enter password for new user: "
+    read -s password
+    useradd -m -g wheel "$username"
+    echo "$password" | passwd "$username" --stdin
+  fi
+}
 
 choose_user() {
   echo "Enter existing username: "
