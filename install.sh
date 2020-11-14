@@ -15,12 +15,12 @@ add_user() {
   # if id -u $username >/dev/null 2>$1; then
   #   echo "User already exists!"
 
-  else
+  # else
     echo -n "Enter password for new user: "
     read -s password
     useradd -m -g wheel "$username"
     echo "$password" | passwd "$username" --stdin
-  fi
+  # fi
 }
 
 choose_user() {
