@@ -93,6 +93,10 @@ install_extras() {
   done
 }
 
+install_aur_packages() {
+  yay --noconfirm --needed -Sy $(< ./packages/base.list)
+}
+
 # install_data_science_package() {
 #   # ask first
 #   sudo pacman -S $(< ./packages/data_science.list)
@@ -119,5 +123,7 @@ welcome
 set_nopasswd_wheel
 add_or_choose_user
 install_basics
+start_network_service
 install_aur_helper
-# install_extras
+install_aur_packages
+install_extras
