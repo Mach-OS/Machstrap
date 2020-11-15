@@ -58,7 +58,7 @@ install_aur_helper() {
   cd /tmp
   sudo -u "$username" git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin
-  sudo -u "$username" --noconfirm makepkg -si 
+  sudo -u "$username" makepkg --noconfirm -si 
   cd -
   rm -rf /tmp/yay-bin
 }
