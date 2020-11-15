@@ -86,7 +86,7 @@ install_extras() {
     echo "(n) don't install extras"
     read -p "> " ync
       case $ync in
-          [Yy]* ) yay --noconfirm --needed -Sy $(< ./packages/extra.list); break;;
+          [Yy]* ) yay --noconfirm --needed -Sy $(< $HOME/Machstrap/packages/extra.list); break;;
           [Nn]* ) echo "Not installing extras"; break;;
           * ) echo " ";;
       esac
@@ -94,7 +94,7 @@ install_extras() {
 }
 
 install_aur_packages() {
-  yay --noconfirm --needed -Sy $(< ./packages/base.list)
+  yay --noconfirm --needed -Sy $(< $HOME/Machstrap/packages/aur.list)
 }
 
 # install_data_science_package() {
