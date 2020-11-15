@@ -8,6 +8,11 @@ welcome() {
   # pacman --noconfirm --needed -Sy archlinux-keyring > /dev/null 2>&1 || echo "MUST RUN AS ROOT USER"
 }
 
+set_nopasswd_wheel() {
+  sed -i "/#MACHSTRAP/d" /etc/sudoers
+  echo "%wheel ALL=(ALL) NOPASSWD: ALL #MACHSTRAP" >> /etc/sudoers
+}
+
 add_user() {
   echo -n "Enter new username: "
   read username
@@ -53,7 +58,7 @@ install_aur_helper() {
   cd /tmp
   sudo -u "$username" git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin
-  sudo -u "$username" makepkg -si
+  sudo -u "$username" --noconfirm makepkg -si 
   cd -
   rm -rf /tmp/yay-bin
 }
@@ -111,6 +116,7 @@ install_extras() {
 
 # welcome
 welcome
+set_nopasswd_wheel
 add_or_choose_user
 install_basics
 install_aur_helper
