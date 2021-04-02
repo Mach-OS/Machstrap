@@ -19,7 +19,6 @@ add_user() {
   # TODO solve this
   # if id -u $username >/dev/null 2>$1; then
   #   echo "User already exists!"
-
   # else
     echo -n "Enter password for new user: "
     read -s password
@@ -77,7 +76,7 @@ start_display_manager_service() {
   systemctl enable lightdm
 }
 
-
+# reuse this function
 install_extras() {
   while true; do
     echo "Do you want to install extras?"
@@ -116,9 +115,6 @@ install_aur_packages() {
 
 # }
 
-
-
-# welcome
 welcome
 set_nopasswd_wheel
 add_or_choose_user
@@ -127,3 +123,11 @@ start_network_service
 install_aur_helper
 install_aur_packages
 install_extras
+start_display_manager_service
+make_home_directories_for_user
+# polybar i3 fontconfig alacritty
+
+# wallpapers
+# xprofile
+# zsh
+# zprofile
