@@ -50,14 +50,34 @@ create_user() {
 	echo $username:$password | chpasswd
 
 	echo "$username ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/$username
+
+	su - $username
+}
+
+install_aur_helper() {
+	echo "Installing AUR helper paru..."
+	git clone https://aur.archlinux.org/paru.git
+	cd ./paru
+	makepkg -si
+	cd ..
+	rm -rf ./paru
+}
+
+install_aur_packages() {
+	echo "Installing AUR packages..."
+	cat ./packages/aur.list | xargs paru -S -y
+}
+
+install_bluetooth_packages() {
+	echo "Do you want to install bluetooth?"
+	read -r bluetooth
+	if [[ "$bluetooth" == "y" ]]; then
+		cat ./packages/bluetooth.list | xargs sudo pacman -S -y
+		systemctl enable bluetooth
+	fi
 }
 
 enable_services() {
-	echo "Do you want to enable bluetooth? (y/n)"
-	read -r bluetooth
-	if [[ "$bluetooth" == "y" ]]; then
-		systemctl enable bluetooth
-	fi
 	echo "Do you want to enable ssh? (y/n)"
 	read -r ssh
 	if [[ "$ssh" == "y" ]]; then
