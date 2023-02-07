@@ -1,8 +1,8 @@
 #!/bin/bash
 
 install_base_packages() {
-  BASE_PCKG=$(cat ./packages/base.list )
-	sudo pacman -S -y $BASE_PCKG
+	BASE_PCKG=$(cat ./packages/base.list)
+	sudo pacman -S --noconfirm $BASE_PCKG
 
 	echo "Are you using a laptop? (y/n)"
 	read -r laptop
@@ -66,16 +66,16 @@ install_aur_helper() {
 
 install_aur_packages() {
 	echo "Installing AUR packages..."
-  AUR_PCKG=$(cat ./packages/aur.list)
-  paru -S -y $AUR_PCKG 
+	AUR_PCKG=$(cat ./packages/aur.list)
+	paru -S --noconfirm $AUR_PCKG
 }
 
 install_bluetooth_packages() {
 	echo "Do you want to install bluetooth?"
 	read -r bluetooth
 	if [[ "$bluetooth" == "y" ]]; then
-    BLUETOOTH_PCKG=$(cat ./packages/bluetooth.list)
-		sudo pacman -S -y $BLUETOOTH_PCKG
+		BLUETOOTH_PCKG=$(cat ./packages/bluetooth.list)
+		sudo pacman -S --noconfirm $BLUETOOTH_PCKG
 		systemctl enable bluetooth
 	fi
 }
